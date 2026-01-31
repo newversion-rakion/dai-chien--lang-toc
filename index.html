@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Đại Chiến Lang Tộc - T-LAND</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -18,13 +18,20 @@
     }
     </script>
     <style>
-        body { margin: 0; padding: 0; background-color: #000; font-family: 'Inter', sans-serif; overflow: hidden; }
+        body { margin: 0; padding: 0; background-color: #000; font-family: 'Inter', sans-serif; overflow: hidden; touch-action: manipulation; }
         .font-oswald { font-family: 'Oswald', sans-serif; }
+        
+        /* Container Query Setup */
+        .race-container {
+            container-type: size;
+            container-name: board;
+        }
+
         @keyframes wolf-run {
           0% { transform: translateY(0) scaleX(1); }
-          100% { transform: translateY(-4px) scaleX(1.02); }
+          100% { transform: translateY(-0.5cqw) scaleX(1.02); }
         }
-        .wolf-animate { animation: wolf-run 0.8s infinite alternate; }
+        
         /* Ẩn thanh cuộn */
         ::-webkit-scrollbar { display: none; }
     </style>

@@ -46,11 +46,11 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen bg-black text-white overflow-hidden flex items-center justify-center p-0 m-0">
+    <div className="relative w-screen h-screen bg-black text-white overflow-hidden flex items-center justify-center">
       
-      {/* Container giữ tỉ lệ 16:9 - Đảm bảo căn giữa trên mobile màn hình dọc */}
-      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-        <div className="relative aspect-video w-full h-auto max-h-screen max-w-[177.78vh] shadow-2xl overflow-hidden bg-zinc-950">
+      {/* Container 16:9 với Container Query để tự động scale mọi thứ bên trong */}
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden p-2 sm:p-4">
+        <div className="race-container relative aspect-video w-full h-auto max-h-full max-w-[177.78vh] shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden bg-zinc-950 rounded-lg">
             {/* Ảnh Nền */}
             <img 
               src={BG_IMAGE} 
@@ -58,15 +58,15 @@ const App: React.FC = () => {
               className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
             />
 
-            {/* Dashboard Mini */}
-            <div className="absolute top-[4%] right-[4%] z-30 flex flex-col items-end opacity-90 scale-[0.55] sm:scale-75 md:scale-100 origin-top-right">
-              <div className="bg-black/70 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex flex-col items-end shadow-xl">
-                <span className="text-[10px] text-zinc-400 uppercase font-bold tabular-nums">
+            {/* Dashboard Mini - Sử dụng cqw để scale chữ */}
+            <div className="absolute top-[4%] right-[4%] z-30 flex flex-col items-end opacity-90">
+              <div className="bg-black/70 backdrop-blur-md px-[1.5cqw] py-[0.8cqw] rounded-[1cqw] border border-white/10 flex flex-col items-end shadow-xl">
+                <span className="text-[0.8cqw] text-zinc-400 uppercase font-bold tabular-nums">
                   {lastUpdate.toLocaleTimeString()}
                 </span>
-                <div className="flex items-center space-x-2 mt-0.5">
-                  <RefreshCcw size={12} className={`text-orange-500 ${isRefreshing ? 'animate-spin' : ''}`} />
-                  <span className="text-[11px] text-zinc-200 uppercase font-black tracking-widest italic">
+                <div className="flex items-center space-x-[0.5cqw] mt-[0.2cqw]">
+                  <RefreshCcw size="1.2cqw" className={`text-orange-500 ${isRefreshing ? 'animate-spin' : ''}`} />
+                  <span className="text-[1cqw] text-zinc-200 uppercase font-black tracking-widest italic">
                     LIVE DATA
                   </span>
                 </div>
@@ -101,8 +101,8 @@ const App: React.FC = () => {
                   style={{ left: fw.left, top: fw.top }}
                 >
                   <div 
-                    className="w-2 h-2 rounded-full animate-ping"
-                    style={{ backgroundColor: fw.color, boxShadow: `0 0 15px ${fw.color}` }}
+                    className="w-[1cqw] h-[1cqw] rounded-full animate-ping"
+                    style={{ backgroundColor: fw.color, boxShadow: `0 0 1.5cqw ${fw.color}` }}
                   />
                 </div>
               ))}
